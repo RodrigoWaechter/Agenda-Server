@@ -1,4 +1,4 @@
-package ziparProKelvin;
+package com.projeto.agenda.server.controller;
 
 public class MainFrmController {
 

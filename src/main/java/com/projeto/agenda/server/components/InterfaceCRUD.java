@@ -1,4 +1,4 @@
-package ziparProKelvin;
+package com.projeto.agenda.server.components;
 
 public interface InterfaceCRUD {
 

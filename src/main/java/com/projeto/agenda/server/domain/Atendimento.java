@@ -1,6 +1,8 @@
-package ziparProKelvin;
+package com.projeto.agenda.server.domain;
 
 import java.time.LocalDateTime;
+
+import com.projeto.agenda.server.enums.ServicoEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package ziparProKelvin;
+package com.projeto.agenda.server.domain;
 
 import java.util.Date;
 
