@@ -1,52 +1,87 @@
-package com.projeto.agenda.server.domain;
+package ziparProKelvin;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Usuario extends Pessoa {
-	private String senha;
-	private Servico servico;
-	private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
+public class Usuario {
 
-	public void addPropertyChangeListener(PropertyChangeListener l) {
-		changeSupport.addPropertyChangeListener(l);
-	}
-
-	public void removePropertyChangeListener(PropertyChangeListener l) {
-		changeSupport.removePropertyChangeListener(l);
-	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer idUsuario;
+	
+	@Column(length = 50, nullable = false)
+	private String nomeUsuario;
+	
+	@Column(length = 50, nullable = false)
+	private String senhaUsuario;
+	
+	@Column(nullable = false)
+	private Date data;
 
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(int id, String nome, Date dataNascimento, String telefone, String email, String cpf, String senha) {
-		super(id, nome, dataNascimento, telefone, email, cpf);
-		this.senha = senha;
+	public Usuario(Integer idUsuario, String nomeUsuario, String senhaUsuario, Date data) {
+		super();
+		this.idUsuario = idUsuario;
+		this.nomeUsuario = nomeUsuario;
+		this.senhaUsuario = senhaUsuario;
+		this.data = data;
 	}
 
-	public String getSenha() {
-		return senha;
+	public Integer getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setSenha(String senha) {
-		Object oldValue = this.senha;
-		this.senha = senha;
-		changeSupport.firePropertyChange("senha", oldValue, senha);
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
-	public Servico getServico() {
-		return servico;
+	public String getNomeUsuario() {
+		return nomeUsuario;
 	}
 
-	public void setServico(Servico servico) {
-		Object oldValue = this.servico;
-		this.servico = servico;
-		changeSupport.firePropertyChange("servico", oldValue, servico);
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 
+	public String getSenhaUsuario() {
+		return senhaUsuario;
+	}
+
+	public void setSenhaUsuario(String senhaUsuario) {
+		this.senhaUsuario = senhaUsuario;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+	
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		String[] caracteres = new String[getSenhaUsuario().length()];
+		caracteres[0] = getSenhaUsuario();
+		
+		for(int i = 0; i < getSenhaUsuario().length(); i++) {
+			caracteres[0].replace(caracteres[0].charAt(i), '*');
+		}
+		
+		builder.append("ID:" + getIdUsuario().toString());
+		builder.append("NOME:" + getNomeUsuario());
+		builder.append("SENHA:" + caracteres.toString());
+		builder.append("DATA:" + getData().toString());
+		
+		return builder.toString();
+	}
 }
