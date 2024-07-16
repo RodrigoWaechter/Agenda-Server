@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projeto.agenda.server.dao.ClienteRepository;
 import com.projeto.agenda.server.domain.Cliente;
+import com.projeto.agenda.server.service.ClienteService;
 
 /**
  * Controlador REST para operações relacionadas a Clientes.
@@ -24,7 +25,7 @@ import com.projeto.agenda.server.domain.Cliente;
 public class ClienteController {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private ClienteService clienteService;
 
     /**
      * Retorna todos os clientes cadastrados.
@@ -32,7 +33,7 @@ public class ClienteController {
      */
     @GetMapping("/findAll")
     public List<Cliente> findAll() {
-        return clienteRepository.findAll();
+        return clienteService.findAll();
     }
 
     /**
@@ -42,18 +43,18 @@ public class ClienteController {
      */
     @GetMapping("/buscarPorId/{id}")
     public Optional<Cliente> findById(@PathVariable Integer id) {
-        return clienteRepository.findById(id);
+        return clienteService.findById(id);
     }
 
     /**
      * Salva um novo cliente.
      * @param cliente Cliente a ser salvo.
-     * @return Mensagem indicando sucesso ou falha na operação de salvamento.
+     * @return Cliente salvo.
      */
     @PostMapping("/save")
-    public String save(@RequestBody Cliente cliente) {
-        Cliente clienteSalvo = clienteRepository.save(cliente);
-        return clienteSalvo != null ? "Cliente salvo com sucesso!" : "Erro ao salvar cliente!";
+    public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente) {
+        Cliente savedCliente = clienteService.saveCliente(cliente);
+        return ResponseEntity.ok(savedCliente);
     }
 
     /**
@@ -63,18 +64,12 @@ public class ClienteController {
      * @return Mensagem indicando sucesso ou falha na operação de atualização.
      */
     @PutMapping("/updateById/{id}")
-    public String updateById(@PathVariable Integer id, @RequestBody Cliente cliente) {
-        Optional<Cliente> clienteExistente = clienteRepository.findById(id);
-        if (clienteExistente.isPresent()) {
-            Cliente clienteAtualizado = clienteExistente.get();
-            clienteAtualizado.setNomeCliente(cliente.getNomeCliente());
-            clienteAtualizado.setNascimentoCliente(cliente.getNascimentoCliente());
-            clienteAtualizado.setCpfCliente(cliente.getCpfCliente());
-            clienteAtualizado.setTelefoneCliente(cliente.getTelefoneCliente());
-            clienteRepository.save(clienteAtualizado);
-            return "Cliente atualizado com sucesso!";
+    public ResponseEntity<String> updateById(@PathVariable Integer id, @RequestBody Cliente cliente) {
+        Cliente updatedCliente = clienteService.updateById(id, cliente);
+        if (updatedCliente != null) {
+            return ResponseEntity.ok("Cliente atualizado com sucesso!");
         } else {
-            return "Cliente não encontrado!";
+            return ResponseEntity.status(404).body("Cliente não encontrado!");
         }
     }
 
@@ -84,13 +79,12 @@ public class ClienteController {
      * @return Mensagem indicando sucesso na exclusão ou falha se o cliente não for encontrado.
      */
     @DeleteMapping("/deleteById/{id}")
-    public String deleteById(@PathVariable Integer id) {
-        Optional<Cliente> clienteExistente = clienteRepository.findById(id);
-        if (clienteExistente.isPresent()) {
-            clienteRepository.delete(clienteExistente.get());
-            return "Cliente excluído com sucesso!";
+    public ResponseEntity<String> deleteById(@PathVariable Integer id) {
+        boolean deleted = clienteService.deleteById(id);
+        if (deleted) {
+            return ResponseEntity.ok("Cliente excluído com sucesso!");
         } else {
-            return "Cliente não encontrado!";
+            return ResponseEntity.status(404).body("Cliente não encontrado!");
         }
     }
 }
