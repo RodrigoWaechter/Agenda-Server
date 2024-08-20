@@ -15,11 +15,17 @@ Decidiu-se focar somente no essencial para o funcionamento da *API*. Portanto, e
 ## Especificações Técnicas `[Geral]`
 
 ### Organização do Projeto
-- **Versão Java:** `X`
+- **Versão Java:** `17`
 - **IDE:** `Eclipse (Versões X & Y) e IntelliJ (Versão Z)`
 - **Gestor de Dependências:** `Apache Maven (Versão X)`
 - **Spring Boot:** `True (Versão X)`
-- **Divisão C/S:** `True`
+- **Cliente/Servidor:** `True`
+
+### Informações Acadêmicas
+- **Instituição**: `Universidade de Santa Cruz do Sul (UNISC)`
+- **Disciplina**: `Fábrica de Software`
+- **Professor**: `Gilson Augusto Helfer`
+- **Ano/Semestre**: `2024/1º`
 
 ### Dependências Utilizadas
 [Lista das principais dependências]
@@ -29,3 +35,9 @@ Decidiu-se focar somente no essencial para o funcionamento da *API*. Portanto, e
 [JPA, Plugin de Conexão, etc]
 ### Banco de Dados & Conexão
 [AWS, Protocolo REST]
+
+## Links Externos
+O link abaixo redireciona para uma pasta armazenada no Google Drive, contendo o material de apresentação do projeto. Esse material foi utilizado para documentar e divulgar o processo de desenvolvimento e os resultados obtidos aos professores responsáveis pela disciplina de Fábrica de Software (Java), cursada no 1º semestre de 2024.
+
+[Material de Apresentação do Projeto Agenda AtendPlus+](https://drive.google.com/drive/folders/1oIU21j_I6GTsE9g_kkp6H2EQj-p4YdDc?usp=sharing)
+
