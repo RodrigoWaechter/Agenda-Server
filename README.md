@@ -12,7 +12,7 @@ A meta deste projeto era desenvolver uma *API* funcional para gestão de cliente
 ### Escopo
 Decidiu-se focar somente no essencial para o funcionamento da *API*. Portanto, escolhemos dedicar nossos esforços em garantir que houvesse uma **Interface de Usuário (UI)** e uma **Conexão com o Banco de Dados** perfeitamente funcionais. Para tal, deveríamos utilizar somente a linguagem *Java*, incluindo qualquer um de seus serviços e/ou bibliotecas disponíveis. Você encontra mais detalhes na seção **"Especificações Técnicas"**.
 
-## Especificações Técnicas
+## Especificações Gerais
 
 ### Dados dos Contribuidores
 - **Nome:** João Vitor M. Swarowsky
