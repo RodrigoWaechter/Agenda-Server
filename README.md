@@ -12,24 +12,50 @@ A meta deste projeto era desenvolver uma *API* funcional para gestão de cliente
 ### Escopo
 Decidiu-se focar somente no essencial para o funcionamento da *API*. Portanto, escolhemos dedicar nossos esforços em garantir que houvesse uma **Interface de Usuário (UI)** e uma **Conexão com o Banco de Dados** perfeitamente funcionais. Para tal, deveríamos utilizar somente a linguagem *Java*, incluindo qualquer um de seus serviços e/ou bibliotecas disponíveis. Você encontra mais detalhes na seção **"Especificações Técnicas"**.
 
-## Especificações Técnicas `[Geral]`
+## Especificações Técnicas
 
-### Organização do Projeto
-- **Versão Java:** `17`
-- **IDE:** `Eclipse (Versões X & Y) e IntelliJ (Versão Z)`
-- **Gestor de Dependências:** `Apache Maven (Versão X)`
-- **Spring Boot:** `True (Versão X)`
-- **Cliente/Servidor:** `True`
-
+### Dados dos Contribuidores
+- **Nome:** João Vitor M. Swarowsky
+- **Curso:** Ciências da Computação - Bacharelado (UNISC)
+- **Linkedin:** [João Vitor Swarowsky](www.linkedin.com/in/joaoswarowsky)
+---
+- **Nome:** Kelvin Wesley Beilke
+- **Curso:** Ciências da Computação - Bacharelado (UNISC)
+- **Linkedin:** [Kelvin Beilke](https://www.linkedin.com/in/kelvin-b-98b533128/)
+---
+- **Nome:** Rodrigo Hammes Waechter
+- **Curso:** Ciências da Computação - Bacharelado (UNISC)
+- **Linkedin:** [Rodrigo Waechter](https://www.linkedin.com/in/rodrigo-waechter-a4094a321/)
+  
 ### Informações Acadêmicas
-- **Instituição**: `Universidade de Santa Cruz do Sul (UNISC)`
-- **Disciplina**: `Fábrica de Software`
-- **Professor**: `Gilson Augusto Helfer`
-- **Ano/Semestre**: `2024/1º`
+- **Instituição**: Universidade de Santa Cruz do Sul (UNISC)
+- **Disciplina**: Fábrica de Software
+- **Professor**: Gilson Augusto Helfer
+- **Ano/Semestre**: 2024/1º
+---
+- **Instituição**: Universidade de Santa Cruz do Sul (UNISC)
+- **Disciplina**: Organização de Bancos de Dados / Projeto e Gerência de Banco de Dados
+- **Professor**: Evandro Franzen
+- **Ano/Semestre**: 2024/2º
+---
+- **Instituição**: Universidade de Santa Cruz do Sul (UNISC)
+- **Disciplina**: Requisitos de Software / Projeto de Software
+- **Professor**: Kurt Werner Molz
+- **Ano/Semestre**: 2024/2º
 
 ### Dependências Utilizadas
 [Lista das principais dependências]
-## Especificações Técnicas `[Server]`
+## Especificações Técnicas
+
+### Organização do Projeto
+- **Versão Java:** 17
+- **IDE:** Eclipse (Versões X & Y) e IntelliJ (Versão Z)
+- **Gestor de Dependências:** Apache Maven (Versão X)
+- **Spring Boot:** True (Versão X)
+- **Cliente/Servidor:** True
+
+### Dependências Utilizadas
+[Lista das principais dependências]
 
 ### Mapeamento das Entidades 
 [JPA, Plugin de Conexão, etc]
